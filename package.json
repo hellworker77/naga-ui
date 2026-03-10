@@ -1,0 +1,24 @@
+{
+  "name": "naga-ui",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+
+  "packageManager": "pnpm@9.0.0",
+
+  "scripts": {
+    "dev": "pnpm --filter playground dev",
+    "build": "pnpm -r build",
+    "clean": "pnpm -r clean",
+    "typecheck": "tsc -b",
+    "lint": "eslint ."
+  },
+
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "tsup": "^8.0.0",
+    "eslint": "^9.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  }
+}
