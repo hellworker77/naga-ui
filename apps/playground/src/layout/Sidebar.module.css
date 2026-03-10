@@ -1,0 +1,43 @@
+.sidebar {
+    width: 220px;
+    border-right: 1px solid #eee;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.link {
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.link:hover {
+    background: #f6f6f6;
+}
+
+.active {
+    background: #f3f3f3;
+    font-weight: 500;
+}
+
+.version {
+    font-size: 12px;
+    margin-left: 6px;
+    color: #999;
+}
