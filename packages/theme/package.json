@@ -1,0 +1,8 @@
+{
+  "name": "@naga-ui/theme",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./global.css": "./global.css"
+  }
+}

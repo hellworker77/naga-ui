@@ -1,0 +1,14 @@
+:root {
+    --naga-font: -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Icons",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+body {
+    font-family: var(--naga-font), serif;
+}
