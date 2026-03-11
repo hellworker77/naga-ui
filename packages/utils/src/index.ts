@@ -3,5 +3,6 @@ export {useControllableState} from "./useControllableState"
 export {useOutsideClick} from "./useOutsideClick"
 export {useListNavigation} from "./useListNavigation"
 export {useTypehead} from "./useTypehead"
+export {useOverlayStack} from "./useOverlayStack"
 
 export * from "./positioning"
