@@ -1,0 +1,7 @@
+export { DialogRoot } from "./primitives/_dialogRoot"
+export { DialogTrigger } from "./primitives/_dialogTrigger"
+export { DialogPortal } from "./primitives/_dialogPortal"
+export { DialogOverlay } from "./primitives/_dialogOverlay"
+export { DialogContent } from "./primitives/_dialogContent"
+export { DialogClose } from "./primitives/_dialogClose"
+export { Dialog } from "./Dialog"
