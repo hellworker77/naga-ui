@@ -4,6 +4,7 @@
 
 - [x] Select
 - [ ] Button
+- [ ] Icon
 - [ ] Dialog
 - [ ] Popover
 - [ ] Tooltip
