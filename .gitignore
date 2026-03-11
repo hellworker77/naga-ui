@@ -6,3 +6,4 @@ packages/utils/dist
 pnpm-lock.yaml
 apps/playground/package-lock.json
 packages/button/dist
+packages/dialog/dist
