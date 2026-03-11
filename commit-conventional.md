@@ -134,6 +134,7 @@ Typical cases:
 * CI setup
 * formatting
 * build configuration
+* gitignore
 
 Example commits:
 ````
