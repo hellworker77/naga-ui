@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
 import {isTopOverlay, pushOverlay, removeOverlay} from "./overlayStack";
 
-export function useOverlayStack(open: boolean) {
+export function useOverlayStack(open: boolean): () => boolean {
     const overlayRef = useRef<any>(null);
 
     useEffect(() => {

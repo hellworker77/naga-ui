@@ -1,7 +1,7 @@
 import {forwardRef, HTMLAttributes, useEffect} from "react";
 import {useDialog} from "../_dialogContext";
 import {useFocusTrap} from "../hooks/useFocusTrap";
-import {composeRefs, useOutsideClick} from "@naga-ui/utils";
+import {composeRefs, useOutsideClick, useOverlayStack} from "@naga-ui/utils";
 import {useBodyScrollLock} from "../hooks/useBodyScrollLock";
 import {useFocusRestore} from "../hooks/useFocusRestore";
 
@@ -22,16 +22,22 @@ export const DialogContent = forwardRef<
     useFocusTrap(contentRef, open)
     useBodyScrollLock(open)
     useFocusRestore(triggerRef, open)
-
+    const isTop = useOverlayStack(open);
     useOutsideClick(
         contentRef,
-        () => setOpen(false),
+        () => {
+            if (isTop()) {
+                setOpen(false)
+            }
+        },
         triggerRef)
 
     useEffect(() => {
 
+
+
         function onKey(e: KeyboardEvent) {
-            if (e.key === "Escape") {
+            if (e.key === "Escape" && isTop()) {
                 setOpen(false)
             }
         }
