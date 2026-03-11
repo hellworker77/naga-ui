@@ -6,6 +6,9 @@ interface DialogContextValue {
 
     triggerRef: RefObject<HTMLElement | null>;
     contentRef: RefObject<HTMLElement | null>;
+
+    titleId?: string;
+    descriptionId?: string;
 }
 
 export const DialogContext =

@@ -1,4 +1,4 @@
-import {ReactNode, useRef} from "react";
+import {ReactNode, useId, useRef} from "react";
 import {useControllableState} from "@naga-ui/utils";
 import {DialogContext} from "../_dialogContext";
 
@@ -23,6 +23,9 @@ export function DialogRoot({
     const triggerRef = useRef<HTMLElement | null>(null);
     const contentRef = useRef<HTMLElement | null>(null);
 
+    const titleId = useId();
+    const descriptionId = useId();
+
     return (
         <DialogContext.Provider
             value={{
@@ -30,7 +33,10 @@ export function DialogRoot({
                 setOpen: setState,
 
                 triggerRef,
-                contentRef
+                contentRef,
+
+                titleId,
+                descriptionId,
             }}>
             {children}
         </DialogContext.Provider>

@@ -1,7 +1,9 @@
 import {forwardRef, HTMLAttributes, useEffect} from "react";
 import {useDialog} from "../_dialogContext";
 import {useFocusTrap} from "../hooks/useFocusTrap";
-import {composeRefs} from "@naga-ui/utils";
+import {composeRefs, useOutsideClick} from "@naga-ui/utils";
+import {useBodyScrollLock} from "../hooks/useBodyScrollLock";
+import {useFocusRestore} from "../hooks/useFocusRestore";
 
 export const DialogContent = forwardRef<
     HTMLDivElement,
@@ -9,11 +11,22 @@ export const DialogContent = forwardRef<
     const {
         open,
         setOpen,
+
         contentRef,
-        triggerRef
+        triggerRef,
+
+        titleId,
+        descriptionId
     } = useDialog()
 
     useFocusTrap(contentRef, open)
+    useBodyScrollLock(open)
+    useFocusRestore(triggerRef, open)
+
+    useOutsideClick(
+        contentRef,
+        () => setOpen(false),
+        triggerRef)
 
     useEffect(() => {
 
@@ -30,12 +43,17 @@ export const DialogContent = forwardRef<
 
     }, [])
 
+    if (!open) return null;
+
     return (
         <div
             ref={composeRefs(forwardedRef, contentRef)}
 
             role="dialog"
             aria-modal="true"
+
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
 
             data-state="open"
 
@@ -46,7 +64,11 @@ export const DialogContent = forwardRef<
                 transform: "translate(-50%, -50%)",
                 background: "white",
                 borderRadius: 8,
-                padding: 24
-            }}/>
+                padding: 24,
+                maxWidth: 500,
+                width: "100%"
+            }} />
     )
 })
+
+DialogContent.displayName = "DialogContent"

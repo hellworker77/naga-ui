@@ -15,6 +15,8 @@ export function useFocusTrap(
         const first = focusable[0]
         const last = focusable[focusable.length - 1]
 
+        first?.focus()
+
         function onKey(e: KeyboardEvent) {
             if (e.key !== "Tab") return;
 
@@ -32,8 +34,6 @@ export function useFocusTrap(
         }
 
         el.addEventListener("keydown", onKey);
-
-        first?.focus()
 
         return () => el.removeEventListener("keydown", onKey);
     }, [active]);
