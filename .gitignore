@@ -8,3 +8,4 @@ apps/playground/package-lock.json
 packages/button/dist
 packages/dialog/dist
 packages/popover/dist
+packages/tooltip/dist
