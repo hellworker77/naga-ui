@@ -1,21 +1,21 @@
-import {forwardRef, HTMLAttributes, useRef} from "react";
+import {forwardRef, HTMLAttributes} from "react";
 import {useTooltip} from "../_tooltipContext";
 import {composeRefs} from "@naga-ui/utils";
 import {useTooltipProvider} from "../TooltipProvider";
+import {useTooltipHover} from "./useTooltipHover";
 
 export const TooltipTrigger = forwardRef<
     HTMLElement,
     HTMLAttributes<HTMLElement>>
 ((props, ref) => {
     const {open, setOpen, triggerRef} = useTooltip()
-
     const {
         delayDuration,
-        skipDelayDuration,
         isInstantRef,
         openTimerRef
     } = useTooltipProvider()
 
+    const {handleLeave} = useTooltipHover()
 
     function openTooltip() {
         const delay =
@@ -29,24 +29,15 @@ export const TooltipTrigger = forwardRef<
         }, delay)
     }
 
-    function closeTooltip() {
-        openTimerRef.current && clearTimeout(openTimerRef.current)
-        setOpen(false)
-
-        window.setTimeout(() => {
-            isInstantRef.current = false
-        }, skipDelayDuration)
-    }
-
     return (
         <span {...props}
               ref={composeRefs(ref, triggerRef)}
 
               onMouseEnter={openTooltip}
-              onMouseLeave={closeTooltip}
+              onMouseLeave={handleLeave}
 
               onFocus={openTooltip}
-              onBlur={closeTooltip}
+              onBlur={handleLeave}
 
               data-state={open ? "open" : "closed"}
         />
