@@ -1,7 +1,7 @@
 import {forwardRef, HTMLAttributes, useEffect} from "react";
 import {useDialog} from "../_dialogContext";
 import {useFocusTrap} from "../hooks/useFocusTrap";
-import {composeRefs, useOutsideClick, useOverlayStack} from "@naga-ui/utils";
+import {composeRefs, useDismissableLayer, useOutsideClick, useOverlayStack} from "@naga-ui/utils";
 import {useBodyScrollLock} from "../hooks/useBodyScrollLock";
 import {useFocusRestore} from "../hooks/useFocusRestore";
 
@@ -19,10 +19,19 @@ export const DialogContent = forwardRef<
         descriptionId
     } = useDialog()
 
+    const {isTop, getZIndex} = useOverlayStack(open);
+
+    useDismissableLayer({
+        open,
+        ref: contentRef,
+        onDismiss: () => setOpen(false),
+        isTop
+    })
+
     useFocusTrap(contentRef, open)
     useBodyScrollLock(open)
     useFocusRestore(triggerRef, open)
-    const isTop = useOverlayStack(open);
+
     useOutsideClick(
         contentRef,
         () => {
@@ -33,8 +42,6 @@ export const DialogContent = forwardRef<
         triggerRef)
 
     useEffect(() => {
-
-
 
         function onKey(e: KeyboardEvent) {
             if (e.key === "Escape" && isTop()) {
@@ -64,6 +71,8 @@ export const DialogContent = forwardRef<
             data-state="open"
 
             style={{
+                zIndex: getZIndex(),
+
                 position: "fixed",
                 top: "50%",
                 left: "50%",
