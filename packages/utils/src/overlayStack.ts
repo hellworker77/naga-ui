@@ -1,4 +1,4 @@
-type Overlay = {
+export type Overlay = {
     id: number;
 }
 

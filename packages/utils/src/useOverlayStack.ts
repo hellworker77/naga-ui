@@ -1,8 +1,8 @@
 import {useEffect, useRef} from "react";
-import {isTopOverlay, pushOverlay, removeOverlay} from "./overlayStack";
+import {isTopOverlay, Overlay, pushOverlay, removeOverlay} from "./overlayStack";
 
 export function useOverlayStack(open: boolean): () => boolean {
-    const overlayRef = useRef<any>(null);
+    const overlayRef = useRef<Overlay | null>(null);
 
     useEffect(() => {
         if (!open) return;
@@ -10,10 +10,17 @@ export function useOverlayStack(open: boolean): () => boolean {
         overlayRef.current = pushOverlay()
 
         return () => {
-            removeOverlay(overlayRef.current);
+           if (overlayRef.current) {
+               removeOverlay(overlayRef.current);
+           }
         }
 
     }, [open]);
 
-    return () => isTopOverlay(overlayRef.current);
+    return () => {
+        if (!overlayRef.current)
+            return false
+
+        return isTopOverlay(overlayRef.current)
+    };
 }
