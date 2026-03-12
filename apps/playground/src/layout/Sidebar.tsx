@@ -12,7 +12,9 @@ export default function Sidebar({
     const items = [
         { id: "select", label: "Select" },
         { id: "button", label: "Button" },
-        { id: "popover", label: "Popover" }
+        { id: "popover", label: "Popover" },
+        { id: "dialog", label: "Dialog" },
+        { id: "tooltip", label: "Tooltip" },
     ]
 
     return (
