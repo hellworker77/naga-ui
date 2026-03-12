@@ -40,14 +40,14 @@ export function DialogDemo() {
 
                             <Dialog.Content className={styles.dialog}>
 
-                                <h3 className={styles.dialogTitle}>
+                                <Dialog.Title className={styles.dialogTitle}>
                                     Dialog title
-                                </h3>
+                                </Dialog.Title>
 
-                                <p className={styles.dialogText}>
+                                <Dialog.Description className={styles.dialogText}>
                                     This is an accessible modal dialog.
                                     Focus is trapped inside while open.
-                                </p>
+                                </Dialog.Description>
 
                                 <div className={styles.dialogActions}>
 
@@ -88,6 +88,14 @@ export function DialogDemo() {
     <Dialog.Overlay />
 
     <Dialog.Content>
+
+      <Dialog.Title>
+        Dialog title
+      </Dialog.Title>
+
+      <Dialog.Description>
+        Dialog description
+      </Dialog.Description>
 
       <Dialog.Close>
         Close
@@ -131,6 +139,16 @@ export function DialogDemo() {
                     <tr>
                         <td>content</td>
                         <td>dialog container</td>
+                    </tr>
+
+                    <tr>
+                        <td>title</td>
+                        <td>dialog heading used by aria-labelledby</td>
+                    </tr>
+
+                    <tr>
+                        <td>description</td>
+                        <td>dialog text used by aria-describedby</td>
                     </tr>
 
                     <tr>
