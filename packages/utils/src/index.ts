@@ -4,5 +4,5 @@ export {useOutsideClick} from "./useOutsideClick"
 export {useListNavigation} from "./useListNavigation"
 export {useTypehead} from "./useTypehead"
 export {useOverlayStack} from "./useOverlayStack"
-
+export {useSafePolygon, pointInPolygon} from "./useSafePolygon"
 export * from "./positioning"
