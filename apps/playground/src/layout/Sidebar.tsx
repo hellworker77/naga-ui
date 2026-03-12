@@ -15,6 +15,7 @@ export default function Sidebar({
         { id: "popover", label: "Popover" },
         { id: "dialog", label: "Dialog" },
         { id: "tooltip", label: "Tooltip" },
+        { id: "icon", label: "Icon" }
     ]
 
     return (
