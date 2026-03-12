@@ -10,6 +10,8 @@
     "@naga-ui/select": "workspace:*",
     "@naga-ui/button": "workspace:*",
     "@naga-ui/popover": "workspace:*",
+    "@naga-ui/dialog": "workspace:*",
+    "@naga-ui/tooltip": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },
