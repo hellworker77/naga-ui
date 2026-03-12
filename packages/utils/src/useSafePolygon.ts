@@ -69,26 +69,7 @@ export function useSafePolygon(buffer = 8) {
         return inside && towardsTooltip;
     }
 
-    function isMovingToTooltip(
-        trigger: DOMRect,
-        tooltip: DOMRect,
-    ) {
-        const p = cursorRef.current;
-
-        const polygon = [
-
-            {x: trigger.right, y: trigger.top},
-            {x: trigger.right, y: trigger.bottom},
-
-            {x: tooltip.left, y: tooltip.bottom},
-            {x: tooltip.left, y: tooltip.top}
-
-        ]
-
-        return pointInPolygon(p, polygon)
-    }
-
-    return {isMovingToTooltip};
+    return {isMovingTowardsTooltip};
 }
 
 export function pointInPolygon(
