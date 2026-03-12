@@ -1,3 +1,4 @@
+import React from "react"
 import styles from "./Sidebar.module.css"
 
 export default function Sidebar({
@@ -10,7 +11,8 @@ export default function Sidebar({
 
     const items = [
         { id: "select", label: "Select" },
-        { id: "button", label: "Button" }
+        { id: "button", label: "Button" },
+        { id: "popover", label: "Popover" }
     ]
 
     return (

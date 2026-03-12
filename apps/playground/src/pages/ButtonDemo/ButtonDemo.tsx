@@ -1,5 +1,6 @@
 import {Button} from "@naga-ui/button"
 import styles from "./ButtonDemo.module.css"
+import React from "react"
 
 export default function ButtonDemo() {
 
@@ -40,19 +41,19 @@ export default function ButtonDemo() {
                         Ghost
                     </Button>
 
-                    <Button startIcon={<Icon name="arrow-right" />}>
+                    {/*<Button startIcon={<Icon name="arrow-right" />}>
                         With icon
-                    </Button>
+                    </Button>*/}
 
                     <Button loading>
                         Loading
                     </Button>
 
-                    <Button
+                    {/*<Button
                         icon
                         aria-label="Close">
                         <Icon name="close" />
-                    </Button>
+                    </Button>*/}
 
                 </div>
 

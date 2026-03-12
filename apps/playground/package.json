@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@naga-ui/select": "workspace:*",
+    "@naga-ui/button": "workspace:*",
+    "@naga-ui/popover": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },
