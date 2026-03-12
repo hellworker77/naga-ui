@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 
 export function pointInPolygon(
     point: { x: number, y: number },
@@ -25,31 +25,42 @@ export function pointInPolygon(
 }
 
 export function useSafePolygon() {
-    const lastCursor = useRef({x: 0, y: 0})
+    const cursorRef = useRef({x: 0, y: 0});
 
-    function onPointerMove(e: PointerEvent) {
-        lastCursor.current = {
-            x: e.clientX,
-            y: e.clientY,
+    useEffect(() => {
+        function onPointerMove(e: PointerEvent) {
+            cursorRef.current = {
+                x: e.clientX,
+                y: e.clientY,
+            }
         }
-    }
+
+        window.addEventListener("pointermove", onPointerMove);
+
+        return () => {
+            window.removeEventListener("pointermove", onPointerMove);
+        }
+    },[])
 
     function isMovingToTooltip(
         trigger: DOMRect,
         tooltip: DOMRect,
     ) {
-        const p = lastCursor.current;
+        const p = cursorRef.current;
 
         const polygon = [
-            { x: trigger.right, y: trigger.top },
-            { x: trigger.right, y: trigger.bottom },
-            { x: tooltip.left, y: tooltip.bottom },
-            { x: tooltip.left, y: tooltip.top }
+
+            {x: trigger.right, y: trigger.top},
+            {x: trigger.right, y: trigger.bottom},
+
+            {x: tooltip.left, y: tooltip.bottom},
+            {x: tooltip.left, y: tooltip.top}
+
         ]
 
-        return pointInPolygon(p, polygon);
+        return pointInPolygon(p, polygon)
     }
 
-    return {onPointerMove, isMovingToTooltip};
+    return {isMovingToTooltip};
 }
 
