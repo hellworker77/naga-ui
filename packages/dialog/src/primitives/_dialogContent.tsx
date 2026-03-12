@@ -19,6 +19,8 @@ export const DialogContent = forwardRef<
         descriptionId
     } = useDialog()
 
+    const {children, style, ...rest} = props
+
     const {isTop, getZIndex} = useOverlayStack(open);
 
     useDismissableLayer({
@@ -60,6 +62,8 @@ export const DialogContent = forwardRef<
 
     return (
         <div
+            {...rest}
+            
             ref={composeRefs(forwardedRef, contentRef)}
 
             role="dialog"
@@ -81,8 +85,12 @@ export const DialogContent = forwardRef<
                 borderRadius: 8,
                 padding: 24,
                 maxWidth: 500,
-                width: "100%"
-            }} />
+                width: "100%",
+
+                ...style
+            }}>
+            {children}
+        </div>
     )
 })
 
