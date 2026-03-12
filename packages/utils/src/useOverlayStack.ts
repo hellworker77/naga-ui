@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
 import {isTopOverlay, Overlay, pushOverlay, removeOverlay} from "./overlayStack";
 
-export function useOverlayStack(open: boolean): () => boolean {
+export function useOverlayStack(open: boolean) {
     const overlayRef = useRef<Overlay | null>(null);
 
     useEffect(() => {
@@ -17,10 +17,30 @@ export function useOverlayStack(open: boolean): () => boolean {
 
     }, [open]);
 
-    return () => {
+    function isTop() {
         if (!overlayRef.current)
-            return false
+            return false;
 
-        return isTopOverlay(overlayRef.current)
-    };
+        return isTopOverlay(overlayRef.current);
+    }
+
+    function getZIndex() {
+        return overlayRef.current?.zIndex ?? 0;
+    }
+
+    return {
+        isTop,
+        getZIndex
+    }
 }
+
+/*
+
+stack
+focus management
+dismiss system
+pointer blocking
+scroll locking
+z-index ordering
+
+*/
