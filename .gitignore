@@ -1,11 +1,5 @@
 ﻿node_modules
-packages/select/dist
+dist
 .idea
-apps/playground/dist
-packages/utils/dist
 pnpm-lock.yaml
-apps/playground/package-lock.json
-packages/button/dist
-packages/dialog/dist
-packages/popover/dist
-packages/tooltip/dist
+package-lock.json
