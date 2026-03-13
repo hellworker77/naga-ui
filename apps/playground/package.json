@@ -12,6 +12,7 @@
     "@naga-ui/popover": "workspace:*",
     "@naga-ui/dialog": "workspace:*",
     "@naga-ui/tooltip": "workspace:*",
+    "@naga-ui/icon": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },
