@@ -1,7 +1,11 @@
-import {IconLoader} from "./types";
-
 export const iconRegistry = {
-    "arrow-down": () => import("./icons/ArrowDown")
-} satisfies Record<string, IconLoader>
+"arrow-left": () => import("./icons/ArrowLeftIcon"),
+"arrow-right": () => import("./icons/ArrowRightIcon"),
+"arrow-up": () => import("./icons/ArrowUpIcon"),
+"blocked": () => import("./icons/BlockedIcon"),
+"cross": () => import("./icons/CrossIcon"),
+"down": () => import("./icons/DownIcon"),
+"up": () => import("./icons/UpIcon")
+}
 
-export type IconName = keyof typeof iconRegistry;
+export type IconName = keyof typeof iconRegistry
