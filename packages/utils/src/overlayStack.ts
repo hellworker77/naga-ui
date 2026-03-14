@@ -8,6 +8,9 @@ const stack: Overlay[] = []
 let id = 0
 const BASE_Z_INDEX = 1000
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function pushOverlay() {
     const overlay: Overlay = {
         id: ++id,
@@ -19,6 +22,9 @@ export function pushOverlay() {
     return overlay;
 }
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function removeOverlay(overlay: Overlay) {
     const index= stack.indexOf(overlay)
 
@@ -27,10 +33,16 @@ export function removeOverlay(overlay: Overlay) {
     }
 }
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function isTopOverlay(overlay: Overlay) {
     return stack[stack.length - 1] === overlay
 }
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function getOverlayZIndex(overlay: Overlay) {
     return overlay.zIndex
 }

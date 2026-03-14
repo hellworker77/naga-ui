@@ -1,6 +1,9 @@
 import {useEffect, useRef} from "react";
 import {isTopOverlay, Overlay, pushOverlay, removeOverlay} from "./overlayStack";
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function useOverlayStack(open: boolean) {
     const overlayRef = useRef<Overlay | null>(null);
 
