@@ -3,12 +3,12 @@
 ## Phase 1 — Core Components
 
 - [x] Select
-- [ ] Button
-- [ ] Icon
-- [ ] Dialog
-- [ ] Popover
-- [ ] Tooltip
-- [ ] Tabs
+- [x] Button
+- [x] Icon
+- [x] Dialog
+- [x] Popover
+- [x] Tooltip
+- [x] Tabs
 - [ ] Checkbox
 - [ ] Switch
 - [ ] Input
