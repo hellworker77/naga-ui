@@ -10,12 +10,13 @@ export default function Sidebar({
 }) {
 
     const items = [
-        { id: "select", label: "Select" },
-        { id: "button", label: "Button" },
-        { id: "popover", label: "Popover" },
-        { id: "dialog", label: "Dialog" },
-        { id: "tooltip", label: "Tooltip" },
-        { id: "icon", label: "Icon" }
+        {id: "select", label: "Select"},
+        {id: "button", label: "Button"},
+        {id: "popover", label: "Popover"},
+        {id: "dialog", label: "Dialog"},
+        {id: "tooltip", label: "Tooltip"},
+        {id: "icon", label: "Icon"},
+        {id: "tabs", label: "Tabs"},
     ]
 
     return (
