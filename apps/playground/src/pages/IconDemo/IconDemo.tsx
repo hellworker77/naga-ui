@@ -20,9 +20,9 @@ export function IconDemo() {
                 <div className={styles.stack}>
                     <div className={styles.row}>
                         <Icon name="arrow-up" />
-                        <Icon name="arrow-up" size={20} />
-                        <Icon name="arrow-up" size={28} />
-                        <Icon name="arrow-up" color="red" />
+                        <Icon name="cross" size={20} />
+                        <Icon name="blocked" size={28} />
+                        <Icon name="up" color="red" />
                     </div>
                 </div>
             </section>
