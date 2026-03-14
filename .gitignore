@@ -3,3 +3,5 @@ dist
 .idea
 pnpm-lock.yaml
 package-lock.json
+packages/icon/src/icons
+packages/icon/src/iconRegistry.ts

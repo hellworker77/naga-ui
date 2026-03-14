@@ -1,7 +1,7 @@
 import {ComponentType, ForwardRefExoticComponent, MemoExoticComponent, RefAttributes, SVGProps} from "react";
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
-    size?: number;
+    size?: number | string;
     color?: string;
 }
 

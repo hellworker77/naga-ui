@@ -21,6 +21,8 @@ function extractSvg(svg) {
 
     const inner =
         svg
+            .replace(/width="[^"]*"/g, "")
+            .replace(/height="[^"]*"/g, "")
             .replace(/<svg[^>]*>/, "")
             .replace("</svg>", "")
             .trim()
