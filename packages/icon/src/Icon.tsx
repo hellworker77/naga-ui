@@ -1,7 +1,7 @@
 import {IconComponent, IconProps} from "./types";
 import {IconName, iconRegistry} from "./iconRegistry";
 import {ComponentType, forwardRef, useEffect, useState} from "react";
-import {getCachedIcon, setCachedIcon} from "./cache";
+import {getCachedIcon, setCachedIcon} from "./iconCache";
 
 interface Props extends IconProps {
     name: IconName
@@ -31,8 +31,7 @@ export const Icon = forwardRef<SVGSVGElement, Props>(
         return (
             <Component
                 ref={ref}
-                width={size}
-                height={size}
+                size={size}
                 color={color}
                 {...props} />
         )
