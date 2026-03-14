@@ -1,0 +1,54 @@
+.page {
+    padding: 40px;
+    max-width: 900px;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #666;
+    margin-top: 6px;
+}
+
+.section {
+    margin-top: 40px;
+}
+
+.tabsList {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.trigger {
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.trigger[data-state="active"] {
+    border-bottom: 2px solid black;
+    font-weight: 500;
+}
+
+.panel {
+    padding: 16px 0;
+}
+
+.code {
+    background: #111;
+    color: white;
+    padding: 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    overflow: auto;
+}

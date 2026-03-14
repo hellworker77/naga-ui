@@ -13,6 +13,7 @@
     "@naga-ui/dialog": "workspace:*",
     "@naga-ui/tooltip": "workspace:*",
     "@naga-ui/icon": "workspace:*",
+    "@naga-ui/tabs": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },
