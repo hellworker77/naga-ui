@@ -1,5 +1,8 @@
 import {RefObject, useEffect} from "react";
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function useDismissableLayer({open, ref, onDismiss, isTop}: {
     open: boolean,
     ref: RefObject<HTMLElement | null>,

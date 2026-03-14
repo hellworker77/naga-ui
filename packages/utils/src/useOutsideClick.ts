@@ -1,5 +1,8 @@
 import {RefObject, useEffect} from "react";
 
+/**
+ * @deprecated Use new OverlayEngine
+ */
 export function useOutsideClick(
     ref: RefObject<HTMLElement | null>,
     handler: () => void,
