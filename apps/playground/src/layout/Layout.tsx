@@ -1,6 +1,6 @@
 import Sidebar from "./Sidebar"
-import styles from "./Layout.module.css"
 import React from "react"
+import "./Layout.css"
 
 export default function Layout({
                                    page,
@@ -13,14 +13,14 @@ export default function Layout({
 }) {
 
     return (
-        <div className={styles.container}>
+        <div className="container">
 
             <Sidebar
                 page={page}
                 onNavigate={onNavigate}
             />
 
-            <main className={styles.main}>
+            <main className="main">
                 {children}
             </main>
 

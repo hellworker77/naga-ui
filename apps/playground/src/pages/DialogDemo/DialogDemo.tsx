@@ -5,15 +5,15 @@ import React from "react"
 export function DialogDemo() {
 
     return (
-        <div className={styles.page}>
+        <div className="demo-page">
 
-            <header className={styles.header}>
+            <header className="demo-header">
 
-                <h1 className={styles.title}>
+                <h1 className="demo-title">
                     Dialog
                 </h1>
 
-                <p className={styles.subtitle}>
+                <p className="demo-subtitle">
                     Modal dialog built with overlay stack, focus trap and
                     dismiss system. Supports keyboard navigation and
                     accessibility attributes.
@@ -22,11 +22,11 @@ export function DialogDemo() {
             </header>
 
             {/* Example */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Example</h2>
 
-                <div className={styles.stack}>
+                <div className="demo-stack">
 
                     <Dialog.Root>
 
@@ -72,50 +72,50 @@ export function DialogDemo() {
             </section>
 
             {/* Usage */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`<Dialog.Root>
-
-  <Dialog.Trigger>
-    Open dialog
-  </Dialog.Trigger>
-
-  <Dialog.Portal>
-
-    <Dialog.Overlay />
-
-    <Dialog.Content>
-
-      <Dialog.Title>
-        Dialog title
-      </Dialog.Title>
-
-      <Dialog.Description>
-        Dialog description
-      </Dialog.Description>
-
-      <Dialog.Close>
-        Close
-      </Dialog.Close>
-
-    </Dialog.Content>
-
-  </Dialog.Portal>
-
-</Dialog.Root>`}
+                <pre className="demo-code">
+                    {`<Dialog.Root>
+                    
+                      <Dialog.Trigger>
+                        Open dialog
+                      </Dialog.Trigger>
+                    
+                      <Dialog.Portal>
+                    
+                        <Dialog.Overlay />
+                    
+                        <Dialog.Content>
+                    
+                          <Dialog.Title>
+                            Dialog title
+                          </Dialog.Title>
+                    
+                          <Dialog.Description>
+                            Dialog description
+                          </Dialog.Description>
+                    
+                          <Dialog.Close>
+                            Close
+                          </Dialog.Close>
+                    
+                        </Dialog.Content>
+                    
+                      </Dialog.Portal>
+                    
+                    </Dialog.Root>`}
                 </pre>
 
             </section>
 
             {/* Slots */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Slots</h2>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>
@@ -163,11 +163,11 @@ export function DialogDemo() {
             </section>
 
             {/* Data attributes */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Data attributes</h2>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>

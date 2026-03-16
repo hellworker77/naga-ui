@@ -6,27 +6,26 @@ export function TooltipDemo() {
 
     return (
         <Tooltip.Provider>
-            <div className={styles.page}>
+            <div className="demo-page">
 
-                <header className={styles.header}>
+                <header className="demo-header">
 
-                    <h1 className={styles.title}>
+                    <h1 className="demo-title">
                         Tooltip
                     </h1>
 
-                    <p className={styles.subtitle}>
+                    <p className="demo-subtitle">
                         Floating label that appears on hover or focus.
                         Supports delay, skip delay and safe polygon hover.
                     </p>
 
                 </header>
 
-                {/* Example */}
-                <section className={styles.section}>
+                <section className="demo-stack">
 
                     <h2>Example</h2>
 
-                    <div className={styles.stack}>
+                    <div className="demo-stack">
 
                         <Tooltip.Root>
 
@@ -48,39 +47,37 @@ export function TooltipDemo() {
 
                 </section>
 
-                {/* Usage */}
-                <section className={styles.section}>
+                <section className="demo-section">
 
                     <h2>Usage</h2>
 
-                    <pre className={styles.code}>
-{`<Tooltip.Providr>
-    <Tooltip.Root>
-    
-      <Tooltip.Trigger>
-        Hover me
-      </Tooltip.Trigger>
-    
-      <Tooltip.Portal>
-    
-        <Tooltip.Content>
-          Tooltip text
-        </Tooltip.Content>
-    
-      </Tooltip.Portal>
-    
-    </Tooltip.Root>
-</Tooltip.Providr>`}
-                </pre>
+                    <pre className="demo-code">
+                        {`<Tooltip.Providr>
+                            <Tooltip.Root>
+                            
+                              <Tooltip.Trigger>
+                                Hover me
+                              </Tooltip.Trigger>
+                            
+                              <Tooltip.Portal>
+                            
+                                <Tooltip.Content>
+                                  Tooltip text
+                                </Tooltip.Content>
+                            
+                              </Tooltip.Portal>
+                            
+                            </Tooltip.Root>
+                        </Tooltip.Providr>`}
+                    </pre>
 
                 </section>
 
-                {/* Slots */}
-                <section className={styles.section}>
+                <section className="demo-section">
 
                     <h2>Slots</h2>
 
-                    <table className={styles.table}>
+                    <table className="demo-table">
 
                         <thead>
                         <tr>
@@ -107,12 +104,11 @@ export function TooltipDemo() {
 
                 </section>
 
-                {/* Data attributes */}
-                <section className={styles.section}>
+                <section className="demo-section">
 
                     <h2>Data attributes</h2>
 
-                    <table className={styles.table}>
+                    <table className="demo-table">
 
                         <thead>
                         <tr>

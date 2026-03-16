@@ -14,6 +14,7 @@
     "@naga-ui/tooltip": "workspace:*",
     "@naga-ui/icon": "workspace:*",
     "@naga-ui/tabs": "workspace:*",
+    "@naga-ui/checkbox": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },

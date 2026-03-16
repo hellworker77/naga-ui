@@ -1,0 +1,68 @@
+.button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #f5f5f5;
+}
+
+.buttonSecondary {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: transparent;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+.checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #444;
+    border-radius: 4px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition: all .15s;
+}
+
+.checkbox[data-state="checked"] {
+    background: black;
+    border-color: black;
+    color: white;
+}
+
+.checkbox[data-state="indeterminate"] {
+    background: black;
+    border-color: black;
+    color: white;
+}
+
+.indicator {
+    font-size: 12px;
+    line-height: 1;
+}

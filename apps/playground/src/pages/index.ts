@@ -5,6 +5,7 @@ import {DialogDemo} from "./DialogDemo/DialogDemo";
 import {TooltipDemo} from "./TooltipDemo/TooltipDemo";
 import {IconDemo} from "./IconDemo/IconDemo";
 import {TabsDemo} from "./TabsDemo/TabsDemo";
+import {CheckboxDemo} from "./CheckboxDemo/CheckboxDemo";
 
 export const pages = {
     select: SelectDemo,
@@ -14,6 +15,7 @@ export const pages = {
     tooltip: TooltipDemo,
     icon: IconDemo,
     tabs: TabsDemo,
+    checkbox: CheckboxDemo,
 } as const
 
 export type PageId = keyof typeof pages

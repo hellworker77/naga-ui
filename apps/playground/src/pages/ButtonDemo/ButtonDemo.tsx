@@ -1,19 +1,18 @@
 import {Button} from "@naga-ui/button"
-import styles from "./ButtonDemo.module.css"
 import React from "react"
 
 export default function ButtonDemo() {
 
     return (
-        <div className={styles.page}>
+        <div className="demo-page">
 
-            <header className={styles.header}>
+            <header className="demo-header">
 
-                <h1 className={styles.title}>
+                <h1 className="demo-title">
                     Button
                 </h1>
 
-                <p className={styles.subtitle}>
+                <p className="demo-subtitle">
                     Flexible button component supporting variants, sizes,
                     icons, loading states and polymorphic rendering.
                 </p>
@@ -23,11 +22,11 @@ export default function ButtonDemo() {
 
             {/* Example */}
 
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Example</h2>
 
-                <div className={styles.stack}>
+                <div className="demo-stack">
 
                     <Button>
                         Default
@@ -59,25 +58,22 @@ export default function ButtonDemo() {
 
             </section>
 
-
-            {/* Usage */}
-
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`<Button>
-  Save
-</Button>
-
-<Button variant="outline">
-  Cancel
-</Button>
-
-<Button startIcon={<Icon name="plus" />}>
-  Create
-</Button>`}
+                <pre className="demo-code">
+                    {`<Button>
+                      Save
+                    </Button>
+                    
+                    <Button variant="outline">
+                      Cancel
+                    </Button>
+                    
+                    <Button startIcon={<Icon name="plus" />}>
+                      Create
+                    </Button>`}
                 </pre>
 
             </section>
@@ -85,11 +81,11 @@ export default function ButtonDemo() {
 
             {/* Variants */}
 
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Variants</h2>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>
@@ -121,14 +117,11 @@ export default function ButtonDemo() {
 
             </section>
 
-
-            {/* Sizes */}
-
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Sizes</h2>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>
@@ -170,10 +163,7 @@ export default function ButtonDemo() {
 
             </section>
 
-
-            {/* Slots */}
-
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Slots</h2>
 
@@ -181,19 +171,19 @@ export default function ButtonDemo() {
                     Slots allow styling specific parts of the button.
                 </p>
 
-                <pre className={styles.code}>
-{`<Button
-  slots={{
-    root: "my-button",
-    startIcon: "my-icon",
-    label: "my-label"
-  }}
->
-  Save
-</Button>`}
+                <pre className="demo-code">
+                    {`<Button
+                      slots={{
+                        root: "my-button",
+                        startIcon: "my-icon",
+                        label: "my-label"
+                      }}
+                    >
+                      Save
+                    </Button>`}
                 </pre>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>
@@ -230,10 +220,7 @@ export default function ButtonDemo() {
 
             </section>
 
-
-            {/* Data attributes */}
-
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Data attributes</h2>
 
@@ -241,7 +228,7 @@ export default function ButtonDemo() {
                     Button state is exposed via <code>data-*</code> attributes.
                 </p>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>

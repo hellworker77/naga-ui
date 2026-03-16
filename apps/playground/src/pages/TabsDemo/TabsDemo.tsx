@@ -5,22 +5,22 @@ import React from "react"
 export function TabsDemo() {
 
     return (
-        <div className={styles.page}>
+        <div className="demo-page">
 
-            <header className={styles.header}>
+            <header className="demo-header">
 
-                <h1 className={styles.title}>
+                <h1 className="demo-title">
                     Tabs
                 </h1>
 
-                <p className={styles.subtitle}>
+                <p className="demo-subtitle">
                     Accessible tabs with keyboard navigation,
                     roving focus and typeahead support.
                 </p>
 
             </header>
 
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Example</h2>
 
@@ -79,30 +79,30 @@ export function TabsDemo() {
 
             </section>
 
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`<Tabs.Root defaultValue="account">
-
-  <Tabs.List>
-
-    <Tabs.Trigger value="account">
-      Account
-    </Tabs.Trigger>
-
-    <Tabs.Trigger value="security">
-      Security
-    </Tabs.Trigger>
-
-  </Tabs.List>
-
-  <Tabs.Content value="account">
-    Account panel
-  </Tabs.Content>
-
-</Tabs.Root>`}
+                <pre className="demo-code">
+                    {`<Tabs.Root defaultValue="account">
+                    
+                      <Tabs.List>
+                    
+                        <Tabs.Trigger value="account">
+                          Account
+                        </Tabs.Trigger>
+                    
+                        <Tabs.Trigger value="security">
+                          Security
+                        </Tabs.Trigger>
+                    
+                      </Tabs.List>
+                    
+                      <Tabs.Content value="account">
+                        Account panel
+                      </Tabs.Content>
+                    
+                    </Tabs.Root>`}
                 </pre>
 
             </section>

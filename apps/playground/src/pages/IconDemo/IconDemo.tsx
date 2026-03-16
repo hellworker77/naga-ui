@@ -1,12 +1,13 @@
 import { Icon } from "@naga-ui/icon"
 import styles from "./IconDemo.module.css"
+import React from "react"
 
 export function IconDemo() {
     return (
-        <div className={styles.page}>
-            <header className={styles.header}>
-                <h1 className={styles.title}>Icon</h1>
-                <p className={styles.subtitle}>
+        <div className="demo-page">
+            <header className="demo-header">
+                <h1 className="demo-title">Icon</h1>
+                <p className="demo-subtitle">
                     SVG icon system with code generation, lazy loading and registry-based
                     dynamic imports. Icons can be used statically or through the dynamic
                     Icon component.
@@ -14,10 +15,10 @@ export function IconDemo() {
             </header>
 
             {/* Example */}
-            <section className={styles.section}>
+            <section className="demo-section">
                 <h2>Example</h2>
 
-                <div className={styles.stack}>
+                <div className="demo-stack">
                     <div className={styles.row}>
                         <Icon name="arrow-up" />
                         <Icon name="cross" size={20} />
@@ -28,31 +29,31 @@ export function IconDemo() {
             </section>
 
             {/* Usage */}
-            <section className={styles.section}>
+            <section className="demo-section">
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`import { Icon } from "@naga-ui/icon"
-
-<Icon name="arrow-up" />
-
-<Icon
-  name="arrow-up"
-  size={20}
-/>
-
-<Icon
-  name="arrow-up"
-  color="red"
-/>`}
-        </pre>
+                <pre className="demo-code">
+                    {`import { Icon } from "@naga-ui/icon"
+                    
+                    <Icon name="arrow-up" />
+                    
+                    <Icon
+                      name="arrow-up"
+                      size={20}
+                    />
+                    
+                    <Icon
+                      name="arrow-up"
+                      color="red"
+                    />`}
+                 </pre>
             </section>
 
             {/* Props */}
-            <section className={styles.section}>
+            <section className="demo-section">
                 <h2>Props</h2>
 
-                <table className={styles.table}>
+                <table className="demo-table">
                     <thead>
                     <tr>
                         <th>prop</th>
@@ -84,7 +85,7 @@ export function IconDemo() {
             </section>
 
             {/* Features */}
-            <section className={styles.section}>
+            <section className="demo-section">
                 <h2>Features</h2>
 
                 <ul className={styles.list}>

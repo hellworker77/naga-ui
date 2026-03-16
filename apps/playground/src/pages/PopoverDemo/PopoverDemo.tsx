@@ -4,15 +4,15 @@ import React from "react"
 
 export default function PopoverDemo() {
     return (
-        <div className={styles.page}>
+        <div className="demo-page">
 
-            <header className={styles.header}>
+            <header className="demo-header">
 
-                <h1 className={styles.title}>
+                <h1 className="demo-title">
                     Popover
                 </h1>
 
-                <p className={styles.subtitle}>
+                <p className="demo-subtitle">
                     Floating panel anchored to a trigger element.
                     Supports outside click, escape close and smart positioning.
                 </p>
@@ -20,11 +20,11 @@ export default function PopoverDemo() {
             </header>
 
             {/* Example */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Example</h2>
 
-                <div className={styles.stack}>
+                <div className="demo-stack">
 
                     <Popover.Root>
 
@@ -62,22 +62,22 @@ export default function PopoverDemo() {
 
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`<Popover.Root>
-
-  <Popover.Trigger>
-    Open
-  </Popover.Trigger>
-
-  <Popover.Portal>
-
-    <Popover.Content>
-      Popover content
-    </Popover.Content>
-
-  </Popover.Portal>
-
-</Popover.Root>`}
+                <pre className="demo-code">
+                    {`<Popover.Root>
+                    
+                      <Popover.Trigger>
+                        Open
+                      </Popover.Trigger>
+                    
+                      <Popover.Portal>
+                    
+                        <Popover.Content>
+                          Popover content
+                        </Popover.Content>
+                    
+                      </Popover.Portal>
+                    
+                    </Popover.Root>`}
                 </pre>
 
             </section>

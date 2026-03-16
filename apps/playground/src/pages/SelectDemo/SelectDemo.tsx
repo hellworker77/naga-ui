@@ -1,7 +1,5 @@
 import { Select } from "@naga-ui/select"
 import { useState } from "react"
-import styles from "./SelectDemo.module.css"
-
 export default function SelectDemo() {
 
     const [value, setValue] = useState("a")
@@ -20,23 +18,23 @@ export default function SelectDemo() {
     ]
 
     return (
-        <div className={styles.page}>
+        <div className="demo-page">
 
-            <header className={styles.header}>
-                <h1 className={styles.title}>Select</h1>
+            <header className="demo-header">
+                <h1 className="demo-title">Select</h1>
 
-                <p className={styles.subtitle}>
+                <p className="demo-subtitle">
                     Accessible select component with keyboard navigation,
                     typeahead search and multi selection.
                 </p>
             </header>
 
             {/* Example */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Example</h2>
 
-                <div className={styles.stack}>
+                <div className="demo-stack">
 
                     <Select
                         value={value}
@@ -56,27 +54,27 @@ export default function SelectDemo() {
             </section>
 
             {/* Usage */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Usage</h2>
 
-                <pre className={styles.code}>
-{`const [value, setValue] = useState("a")
-
-<Select
-  value={value}
-  onChange={setValue}
-  options={[
-    { value: "a", label: "Option A" },
-    { value: "b", label: "Option B" }
-  ]}
-/>`}
-        </pre>
+                <pre className="demo-code">
+                    {`const [value, setValue] = useState("a")
+                    
+                    <Select
+                      value={value}
+                      onChange={setValue}
+                      options={[
+                        { value: "a", label: "Option A" },
+                        { value: "b", label: "Option B" }
+                      ]}
+                    />`}
+                </pre>
 
             </section>
 
             {/* Slots */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Slots</h2>
 
@@ -84,17 +82,17 @@ export default function SelectDemo() {
                     Slots allow styling individual parts of the component.
                 </p>
 
-                <pre className={styles.code}>
-{`<Select
-  slots={{
-    trigger: "my-trigger",
-    content: "my-dropdown",
-    item: "my-option"
-  }}
-/>`}
-        </pre>
+                <pre className="demo-code">
+                    {`<Select
+                      slots={{
+                        trigger: "my-trigger",
+                        content: "my-dropdown",
+                        item: "my-option"
+                      }}
+                    />`}
+                </pre>
 
-                <table className={styles.table}>
+                <table className="demo-table">
                     <thead>
                     <tr>
                         <th>slot</th>
@@ -125,8 +123,7 @@ export default function SelectDemo() {
 
             </section>
 
-            {/* Data attributes */}
-            <section className={styles.section}>
+            <section className="demo-section">
 
                 <h2>Data attributes</h2>
 
@@ -134,7 +131,7 @@ export default function SelectDemo() {
                     State is exposed through <code>data-*</code> attributes.
                 </p>
 
-                <table className={styles.table}>
+                <table className="demo-table">
 
                     <thead>
                     <tr>

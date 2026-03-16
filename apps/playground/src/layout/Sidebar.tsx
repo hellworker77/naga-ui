@@ -17,6 +17,7 @@ export default function Sidebar({
         {id: "tooltip", label: "Tooltip"},
         {id: "icon", label: "Icon"},
         {id: "tabs", label: "Tabs"},
+        {id: "checkbox", label: "Checkbox"},
     ]
 
     return (
