@@ -9,7 +9,7 @@
 - [x] Popover
 - [x] Tooltip
 - [x] Tabs
-- [ ] Checkbox
+- [x] Checkbox
 - [ ] Switch
 - [ ] Input
 
