@@ -2,6 +2,7 @@ import {ButtonHTMLAttributes, forwardRef, useEffect, useRef} from "react";
 import {CheckboxContext, CheckedState} from "../_checkboxContext";
 import {composeRefs, useControllableState} from "@naga-ui/utils";
 import {CheckboxIndicator} from "./_checkboxIndicator";
+import {useCheckboxGroup} from "../_checkboxGroupContext";
 
 export interface Props
     extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "checked" | "defaultChecked" | "type"> {
@@ -43,8 +44,15 @@ export const CheckboxRoot = forwardRef<
             onChange: onCheckedChange
         })
 
-    const checkedState: CheckedState =
-        state ?? false
+    const group = useCheckboxGroup();
+
+    let checkedState: CheckedState;
+
+    if (group && value) {
+        checkedState = group.value.includes(value);
+    } else {
+        checkedState = state ?? false;
+    }
 
     const buttonRef =
         useRef<HTMLButtonElement | null>(null)
@@ -55,6 +63,11 @@ export const CheckboxRoot = forwardRef<
     function toggle() {
         if (disabled)
             return
+
+        if (group && value ){
+            group.toggle(value)
+            return;
+        }
 
         setState(
             checkedState === "indeterminate"
@@ -143,7 +156,7 @@ export const CheckboxRoot = forwardRef<
                     ref={inputRef}
                     type="checkbox"
 
-                    name={name}
+                    name={name ?? group?.name}
                     value={value}
 
                     required={required}
