@@ -1,6 +1,6 @@
-import {Checkbox} from "@naga-ui/checkbox"
+import { Checkbox, CheckboxGroup } from "@naga-ui/checkbox"
 import styles from "./CheckboxDemo.module.css"
-import React, {useState} from "react"
+import React, { useState } from "react"
 
 export function CheckboxDemo() {
 
@@ -8,6 +8,8 @@ export function CheckboxDemo() {
 
     const [parent, setParent] =
         useState<boolean | "indeterminate">("indeterminate")
+
+    const [fruits, setFruits] = useState<string[]>([])
 
     function toggleParent() {
         if (parent === "indeterminate")
@@ -41,7 +43,9 @@ export function CheckboxDemo() {
                     <label className={styles.checkboxRow}>
 
                         <Checkbox className={styles.checkbox}>
-                            <Checkbox.Indicator className={styles.indicator}>✓</Checkbox.Indicator>
+                            <Checkbox.Indicator className={styles.indicator}>
+                                ✓
+                            </Checkbox.Indicator>
                         </Checkbox>
 
                         Uncontrolled checkbox
@@ -55,7 +59,9 @@ export function CheckboxDemo() {
                             onCheckedChange={v => setChecked(v === true)}
                             className={styles.checkbox}
                         >
-                            <Checkbox.Indicator className={styles.indicator}>✓</Checkbox.Indicator>
+                            <Checkbox.Indicator className={styles.indicator}>
+                                ✓
+                            </Checkbox.Indicator>
                         </Checkbox>
 
                         Controlled checkbox ({checked ? "checked" : "unchecked"})
@@ -69,12 +75,81 @@ export function CheckboxDemo() {
                             onCheckedChange={toggleParent}
                             className={styles.checkbox}
                         >
-                            <Checkbox.Indicator className={styles.indicator}>✓</Checkbox.Indicator>
+                            <Checkbox.Indicator className={styles.indicator}>
+                                ✓
+                            </Checkbox.Indicator>
                         </Checkbox>
 
                         Indeterminate checkbox
 
                     </label>
+
+                </div>
+
+            </section>
+
+            <section className="demo-section">
+
+                <h2>Checkbox group</h2>
+
+                <div className="demo-stack">
+
+                    <CheckboxGroup
+                        value={fruits}
+                        onValueChange={setFruits}
+                        name="fruits"
+                    >
+
+                        <label className={styles.checkboxRow}>
+
+                            <Checkbox
+                                value="apple"
+                                className={styles.checkbox}
+                            >
+                                <Checkbox.Indicator className={styles.indicator}>
+                                    ✓
+                                </Checkbox.Indicator>
+                            </Checkbox>
+
+                            Apple
+
+                        </label>
+
+                        <label className={styles.checkboxRow}>
+
+                            <Checkbox
+                                value="banana"
+                                className={styles.checkbox}
+                            >
+                                <Checkbox.Indicator className={styles.indicator}>
+                                    ✓
+                                </Checkbox.Indicator>
+                            </Checkbox>
+
+                            Banana
+
+                        </label>
+
+                        <label className={styles.checkboxRow}>
+
+                            <Checkbox
+                                value="orange"
+                                className={styles.checkbox}
+                            >
+                                <Checkbox.Indicator className={styles.indicator}>
+                                    ✓
+                                </Checkbox.Indicator>
+                            </Checkbox>
+
+                            Orange
+
+                        </label>
+
+                    </CheckboxGroup>
+
+                    <div>
+                        Selected: {fruits.join(", ") || "none"}
+                    </div>
 
                 </div>
 
@@ -102,14 +177,15 @@ export function CheckboxDemo() {
                     <label className={styles.checkboxRow}>
 
                         <Checkbox
-                            type="button"
                             name="terms"
                             required
                             className={styles.checkbox}
                         >
                             <Checkbox.Indicator
                                 className={styles.indicator}
-                            >✓</Checkbox.Indicator>
+                            >
+                                ✓
+                            </Checkbox.Indicator>
                         </Checkbox>
 
                         Accept terms
@@ -133,9 +209,7 @@ export function CheckboxDemo() {
 
                 <pre className="demo-code">
                     {`<Checkbox>
-
-                    <Checkbox.Indicator />
-
+                      <Checkbox.Indicator />
                     </Checkbox>`}
                 </pre>
 
