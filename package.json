@@ -8,10 +8,24 @@
 
   "scripts": {
     "dev": "pnpm --filter playground dev",
-    "build": "pnpm -r build",
     "clean": "pnpm -r clean",
     "typecheck": "tsc -b",
-    "lint": "eslint ."
+    "lint": "eslint .",
+
+    "build": "pnpm -r build",
+    "build:button": "pnpm -F @naga-ui/button build",
+    "build:checkbox": "pnpm -F @naga-ui/checkbox build",
+    "build:dialog": "pnpm -F @naga-ui/dialog build",
+    "build:icon": "pnpm -F @naga-ui/icon build",
+    "build:input": "pnpm -F @naga-ui/input build",
+    "build:popover": "pnpm -F @naga-ui/popover build",
+    "build:select": "pnpm -F @naga-ui/select build",
+    "build:switch": "pnpm -F @naga-ui/switch build",
+    "build:tabs": "pnpm -F @naga-ui/tabs build",
+    "build:tooltip": "pnpm -F @naga-ui/tooltip build",
+
+    "build:theme": "pnpm -F @naga-ui/theme build",
+    "build:utils": "pnpm -F @naga-ui/utils build"
   },
 
   "devDependencies": {
