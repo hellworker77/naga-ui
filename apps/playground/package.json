@@ -15,6 +15,7 @@
     "@naga-ui/icon": "workspace:*",
     "@naga-ui/tabs": "workspace:*",
     "@naga-ui/checkbox": "workspace:*",
+    "@naga-ui/switch": "workspace:*",
     "react": "^18",
     "react-dom": "^18"
   },
