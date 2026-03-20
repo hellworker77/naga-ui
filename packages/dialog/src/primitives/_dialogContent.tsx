@@ -1,7 +1,7 @@
 import {forwardRef, HTMLAttributes, useEffect} from "react";
 import {useDialog} from "../_dialogContext";
 import {useFocusTrap} from "../hooks/useFocusTrap";
-import {composeRefs, useDismissableLayer, useOutsideClick, useOverlayStack} from "@naga-ui/utils";
+import {composeRefs, useDismissableLayer, useOutsideClick, useOverlayStack} from "@naga-ui/core";
 import {useBodyScrollLock} from "../hooks/useBodyScrollLock";
 import {useFocusRestore} from "../hooks/useFocusRestore";
 

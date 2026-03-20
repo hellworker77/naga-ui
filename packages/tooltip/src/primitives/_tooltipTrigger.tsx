@@ -1,6 +1,6 @@
 import {forwardRef, HTMLAttributes} from "react";
 import {useTooltip} from "../_tooltipContext";
-import {composeRefs} from "@naga-ui/utils";
+import {composeRefs} from "@naga-ui/core";
 import {useTooltipProvider} from "../TooltipProvider";
 import {useTooltipHover} from "./useTooltipHover";
 

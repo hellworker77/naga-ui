@@ -25,7 +25,7 @@
     "build:tooltip": "pnpm -F @naga-ui/tooltip build",
 
     "build:theme": "pnpm -F @naga-ui/theme build",
-    "build:utils": "pnpm -F @naga-ui/utils build"
+    "build:core": "pnpm -F @naga-ui/core build"
   },
 
   "devDependencies": {

@@ -1,6 +1,6 @@
 import {ButtonHTMLAttributes, forwardRef, useEffect, useRef} from "react";
 import {CheckboxContext, CheckedState} from "../_checkboxContext";
-import {composeRefs, useControllableState} from "@naga-ui/utils";
+import {composeRefs, useControllableState} from "@naga-ui/core";
 import {CheckboxIndicator} from "./_checkboxIndicator";
 import {useCheckboxGroup} from "../_checkboxGroupContext";
 

@@ -1,5 +1,5 @@
 import {ButtonHTMLAttributes, forwardRef, useEffect, useRef} from "react";
-import {useControllableState} from "@naga-ui/utils";
+import {useControllableState} from "@naga-ui/core";
 import {SwitchContext} from "../_switchContext";
 
 export interface Props

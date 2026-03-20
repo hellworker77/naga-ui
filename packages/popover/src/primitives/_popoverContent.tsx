@@ -1,6 +1,6 @@
 import {forwardRef, HTMLAttributes, useEffect} from "react";
 import {usePopover} from "../_popoverContext";
-import {composeRefs, flip, offset, shift, useFloatingPosition, useOutsideClick} from "@naga-ui/utils";
+import {composeRefs, flip, offset, shift, useFloatingPosition, useOutsideClick} from "@naga-ui/core";
 
 export const PopoverContent = forwardRef<
     HTMLDivElement,

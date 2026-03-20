@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@naga-ui/theme": "workspace:*",
-    "@naga-ui/utils": "workspace:*"
+    "@naga-ui/core": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",

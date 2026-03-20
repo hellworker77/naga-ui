@@ -1,6 +1,6 @@
 import {forwardRef, HTMLAttributes} from "react";
 import {usePopover} from "../_popoverContext";
-import {composeRefs} from "@naga-ui/utils";
+import {composeRefs} from "@naga-ui/core";
 
 export const PopoverTrigger = forwardRef<
     HTMLButtonElement,

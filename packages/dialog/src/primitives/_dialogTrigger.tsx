@@ -1,6 +1,6 @@
 import {forwardRef, HTMLAttributes} from "react";
 import {useDialog} from "../_dialogContext";
-import {composeRefs} from "@naga-ui/utils";
+import {composeRefs} from "@naga-ui/core";
 
 export const DialogTrigger = forwardRef<
     HTMLButtonElement,
