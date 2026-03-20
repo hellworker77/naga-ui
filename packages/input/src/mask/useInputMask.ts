@@ -1,9 +1,8 @@
-import {ChangeEvent, ClipboardEvent, useMemo, useRef} from "react";
-import {createMaskEngine} from "./_engine";
-import {restoreCaret} from "./_caret";
+import {ChangeEvent, ClipboardEvent, useMemo, useRef, useState, KeyboardEvent} from "react";
+import {createMaskEngine, DynamicMask, extractRaw, Mask} from "./_engine";
+import {findCaretFromRaw, getRawBeforeCaret, restoreCaret} from "./_caret";
 
-export function useInputMask(mask?: string) {
-
+export function useInputMask(mask?: Mask | DynamicMask) {
     const engine =
         useMemo(
             () => mask
@@ -12,40 +11,29 @@ export function useInputMask(mask?: string) {
             [mask]
         )
 
-    const composing =
-        useRef(false)
-
-    function onCompositionStart(){
-        composing.current = true
-    }
-
-    function onCompositionEnd(){
-        composing.current = false
-    }
+    const rawRef = useRef("")
+    const [value, setValue] = useState("")
+    const composing = useRef(false)
 
     function onChange(
-        e:  ChangeEvent<HTMLInputElement>,
-    ){
-        if (!engine) return;
-        if (composing.current) return;
+        e: ChangeEvent<HTMLInputElement>,
+    ) {
+        if (!engine || composing.current) return;
 
         const input = e.target;
+        const start = input.selectionStart ?? 0;
 
+        const raw = extractRaw(input.value);
+        rawRef.current = raw;
+
+        const next = engine.process(raw)
         const prev = input.value;
-        const caret =
-            input.selectionStart ?? 0;
 
-        const next =
-            engine.process(prev)
+        setValue(next)
 
-        input.value = next;
-
-        restoreCaret(
-            input,
-            prev,
-            next,
-            caret
-        )
+        requestAnimationFrame(() => {
+            restoreCaret(input, prev, next, start)
+        })
     }
 
     function onPaste(
@@ -54,19 +42,94 @@ export function useInputMask(mask?: string) {
         if (!engine) return;
         e.preventDefault();
 
-        const text =
-            e.clipboardData
-                .getData("text")
+        const raw =
+            extractRaw(e.clipboardData.getData("text"))
+        rawRef.current = raw;
+
+        setValue(engine.process(raw))
+    }
+
+    const validation = engine
+        ? engine.validate(rawRef.current)
+        : {valid: true, complete: true}
+
+    function onKeyDown(e: KeyboardEvent<HTMLInputElement>) {
+        if (!engine) return;
 
         const input = e.currentTarget;
-        input.value =
-            engine.process(text)
+
+        const start = input.selectionStart ?? 0;
+        const end = input.selectionEnd ?? 0;
+
+        if (start !== end) return;
+
+        if (e.key === "Backspace") {
+            const raw = extractRaw(input.value);
+
+            const rawBefore =
+                getRawBeforeCaret(input.value, start);
+
+            if (rawBefore > 0) {
+                e.preventDefault();
+
+                const newRaw =
+                    raw.slice(0, rawBefore - 1) +
+                    raw.slice(rawBefore)
+
+                rawRef.current = newRaw;
+
+                const next =
+                    engine.process(newRaw)
+
+                setValue(next)
+
+                requestAnimationFrame(() => {
+                    const caret =
+                        findCaretFromRaw(next, rawBefore - 1)
+
+                    input.setSelectionRange(caret, caret)
+                })
+            }
+        }
+
+        if (e.key === "Delete") {
+            const raw = extractRaw(input.value);
+
+            const rawBefore =
+                getRawBeforeCaret(input.value, start);
+
+            if (rawBefore < raw.length) {
+                e.preventDefault();
+
+                const newRaw =
+                    raw.slice(0, rawBefore) +
+                    raw.slice(rawBefore + 1)
+
+                rawRef.current = newRaw;
+                const next =
+                    engine.process(newRaw)
+
+                setValue(next)
+
+                requestAnimationFrame(() => {
+                    const caret =
+                        findCaretFromRaw(next, rawBefore)
+
+                    input.setSelectionRange(caret, caret)
+                })
+            }
+        }
     }
 
     return {
+        raw: rawRef.current,
+        validation,
+
+        value,
         onChange,
         onPaste,
-        onCompositionStart,
-        onCompositionEnd,
+        onKeyDown,
+        onCompositionStart: () => composing.current = true,
+        onCompositionEnd: () => composing.current = false,
     }
 }
