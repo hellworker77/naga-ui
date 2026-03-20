@@ -18,7 +18,7 @@
   },
 
   "dependencies": {
-    "@naga-ui/utils": "workspace:*",
+    "@naga-ui/core": "workspace:*",
     "@naga-ui/theme": "workspace:*"
   },
 

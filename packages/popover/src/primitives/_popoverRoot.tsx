@@ -1,5 +1,5 @@
 import {ReactNode, useRef} from "react";
-import {useControllableState} from "@naga-ui/utils";
+import {useControllableState} from "@naga-ui/core";
 import {PopoverContext} from "../_popoverContext";
 
 export function PopoverRoot({

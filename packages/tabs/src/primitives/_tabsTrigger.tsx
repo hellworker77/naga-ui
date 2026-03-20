@@ -1,6 +1,6 @@
 import {ButtonHTMLAttributes, forwardRef, useEffect, useRef} from "react";
 import {useTabs} from "../_tabsContext";
-import {composeRefs, useTypehead} from "@naga-ui/utils";
+import {composeRefs, useTypehead} from "@naga-ui/core";
 
 export interface Props
     extends ButtonHTMLAttributes<HTMLButtonElement> {

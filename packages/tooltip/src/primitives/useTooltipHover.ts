@@ -1,5 +1,5 @@
 import {useTooltip} from "../_tooltipContext";
-import {useSafePolygon} from "@naga-ui/utils";
+import {useSafePolygon} from "@naga-ui/core";
 import {useTooltipProvider} from "../TooltipProvider";
 
 export function useTooltipHover() {

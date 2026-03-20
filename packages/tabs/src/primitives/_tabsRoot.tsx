@@ -1,6 +1,6 @@
 import {ReactNode, useRef, useState} from "react";
 import {ActivationMode, Orientation, TriggerItem} from "../types";
-import {useControllableState} from "@naga-ui/utils";
+import {useControllableState} from "@naga-ui/core";
 import {TabsContext} from "../_tabsContext";
 
 export interface TabsRootProps {

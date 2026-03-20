@@ -1,5 +1,5 @@
 import {forwardRef, HTMLAttributes} from "react";
-import {useControllableState} from "@naga-ui/utils";
+import {useControllableState} from "@naga-ui/core";
 import {CheckboxGroupContext} from "../_checkboxGroupContext";
 
 export interface CheckboxGroupProps
