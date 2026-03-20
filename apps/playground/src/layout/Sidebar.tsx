@@ -19,6 +19,7 @@ export default function Sidebar({
         {id: "tabs", label: "Tabs"},
         {id: "checkbox", label: "Checkbox"},
         {id: "switch", label: "Switch"},
+        {id: "input", label: "Input"},
     ]
 
     return (

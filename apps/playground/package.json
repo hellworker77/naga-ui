@@ -13,6 +13,7 @@
     "@naga-ui/dialog": "workspace:*",
     "@naga-ui/tooltip": "workspace:*",
     "@naga-ui/icon": "workspace:*",
+    "@naga-ui/input": "workspace:*",
     "@naga-ui/tabs": "workspace:*",
     "@naga-ui/checkbox": "workspace:*",
     "@naga-ui/switch": "workspace:*",
