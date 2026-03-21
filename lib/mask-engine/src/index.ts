@@ -45,7 +45,7 @@ const TOKENS = new Map<string, MaskToken>([
 
 // ================= PARSE =================
 
-function parseMask(mask: string): MaskToken[] {
+function parseMask(mask: unknown): MaskToken[] {
     if (typeof mask !== "string") {
         throw new Error("Mask must be string")
     }
