@@ -16,12 +16,17 @@ type BufferState = {
     cursor: number
 }
 
+type MaskConfig = {
+    mask: string
+    prefixLength?: number
+}
+
 type DynamicMask = {
     masks: string[]
     dispatch(raw: string): string
 }
 
-export type Mask = string | DynamicMask
+export type Mask = string | MaskConfig | DynamicMask
 
 export type MaskEngineResult = {
     value: string
@@ -114,18 +119,72 @@ function clearRange(state: BufferState, start: number, end: number) {
     state.cursor = start
 }
 
+// ================= PREFIX =================
+
+function autoDetectPrefix(tokens: MaskToken[]) {
+    let i = 0
+
+    while (i < tokens.length) {
+        const t = tokens[i]
+
+        if (t.type !== "literal") break
+
+        i++
+    }
+
+    // убрать trailing formatting
+    while (i > 0) {
+        const t = tokens[i - 1]
+
+        if (
+            t.type === "literal" &&
+            (t.char === " " || t.char === "(" || t.char === "-")
+        ) {
+            i--
+        } else {
+            break
+        }
+    }
+
+    return i
+}
+
 // ================= FORMAT =================
 
-function toValue(slots: Slot[]) {
+function toValue(
+    slots: Slot[],
+    prefixEnd: number
+) {
+    let lastFilledIndex = -1
+
+    for (let i = 0; i < slots.length; i++) {
+        const s = slots[i]
+
+        if (s.token.type !== "literal" && s.char) {
+            lastFilledIndex = i
+        }
+    }
+
+    // ничего не введено → вернуть prefix
+    if (lastFilledIndex === -1) {
+        let result = ""
+
+        for (let i = 0; i < prefixEnd; i++) {
+            result += (slots[i].token as any).char
+        }
+
+        return result
+    }
+
     let result = ""
 
-    for (const s of slots) {
+    for (let i = 0; i <= lastFilledIndex; i++) {
+        const s = slots[i]
+
         if (s.token.type === "literal") {
             result += s.token.char
         } else if (s.char) {
             result += s.char
-        } else {
-            break
         }
     }
 
@@ -190,15 +249,24 @@ function diff(prev: string, next: string) {
 
 export function createMaskEngine(mask: Mask) {
 
-    let currentMask = typeof mask === "string"
-        ? mask
-        : mask.masks[0]
+    let currentMask: string
+    let prefixLength: number | undefined
+
+    if (typeof mask === "string") {
+        currentMask = mask
+    } else if ("mask" in mask) {
+        currentMask = mask.mask
+        prefixLength = mask.prefixLength
+    } else {
+        currentMask = mask.masks[0]
+    }
 
     let tokens = parseMask(currentMask)
+    let prefixEnd = prefixLength ?? autoDetectPrefix(tokens)
     let state = createBuffer(tokens)
 
     function remaskIfNeeded(raw: string) {
-        if (typeof mask === "string") return
+        if (typeof mask === "string" || "mask" in mask) return
 
         const nextMask = mask.dispatch(raw)
 
@@ -206,10 +274,9 @@ export function createMaskEngine(mask: Mask) {
 
         currentMask = nextMask
         tokens = parseMask(currentMask)
+        prefixEnd = autoDetectPrefix(tokens)
 
-        // 🔴 ВАЖНО: перенос состояния
         const newState = cloneEmpty(tokens)
-
         insert(newState, raw)
 
         state = newState
@@ -234,11 +301,10 @@ export function createMaskEngine(mask: Mask) {
 
             const raw = toRaw(state.slots)
 
-            // 🔴 dynamic mask
             remaskIfNeeded(raw)
 
             return {
-                value: toValue(state.slots),
+                value: toValue(state.slots, prefixEnd),
                 raw,
                 complete: isComplete(state.slots),
                 caret: state.cursor
