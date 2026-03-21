@@ -11,8 +11,8 @@
     "clean": "pnpm -r clean",
     "typecheck": "tsc -b",
     "lint": "eslint .",
-
     "build": "pnpm -r build",
+
     "build:button": "pnpm -F @naga-ui/button build",
     "build:checkbox": "pnpm -F @naga-ui/checkbox build",
     "build:dialog": "pnpm -F @naga-ui/dialog build",
@@ -25,7 +25,8 @@
     "build:tooltip": "pnpm -F @naga-ui/tooltip build",
 
     "build:theme": "pnpm -F @naga-ui/theme build",
-    "build:core": "pnpm -F @naga-ui/core build"
+    "build:core": "pnpm -F @naga-ui/core build",
+    "build:mask-engine": "pnpm -F @naga-ui/mask-engine build"
   },
 
   "devDependencies": {
