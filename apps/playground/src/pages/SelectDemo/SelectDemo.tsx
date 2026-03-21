@@ -1,4 +1,5 @@
 import { Select } from "@naga-ui/select"
+import React from "react"
 import { useState } from "react"
 export default function SelectDemo() {
 
@@ -59,7 +60,7 @@ export default function SelectDemo() {
                 <h2>Usage</h2>
 
                 <pre className="demo-code">
-                    {`const [value, setValue] = useState("a")
+                    {`/*const [value, setValue] = useState("a")
                     
                     <Select
                       value={value}
@@ -68,7 +69,7 @@ export default function SelectDemo() {
                         { value: "a", label: "Option A" },
                         { value: "b", label: "Option B" }
                       ]}
-                    />`}
+                    />*/`}
                 </pre>
 
             </section>
