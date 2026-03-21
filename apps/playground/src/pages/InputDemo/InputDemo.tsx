@@ -1,23 +1,33 @@
-import { Input } from "@naga-ui/input"
+import {Input} from "@naga-ui/input"
 import styles from "./InputDemo.module.css"
-import React from "react"
+import React, {useMemo} from "react"
 
 export function InputDemo() {
 
-    const phoneMask = {
+    const phoneMask = useMemo(() => ({
         masks: [
             "+1 (999) 999-9999",
             "+44 99 9999 9999"
         ],
 
         dispatch(raw: string) {
+            if (!raw) {
+                // дефолтная маска (не дёргаем)
+                return "+1 (999) 999-9999"
+            }
+
+            if (raw.startsWith("44")) {
+                return "+44 99 9999 9999"
+            }
+
             if (raw.startsWith("1")) {
                 return "+1 (999) 999-9999"
             }
 
-            return "+44 99 9999 9999"
+            // fallback
+            return "+1 (999) 999-9999"
         }
-    }
+    }), [])
 
     return (
         <div className="demo-page">
@@ -66,7 +76,7 @@ export function InputDemo() {
             </section>
 
 
-            {/* Different formats */}
+            {/* Formats */}
 
             <section className="demo-section">
 
@@ -165,11 +175,11 @@ export function InputDemo() {
                 <h2>Usage</h2>
 
                 <pre className="demo-code">
-{`<Input mask="+7 (999) 999-99-99" />
-
-<Input mask="99/99/9999" />
-
-<Input mask="9999 9999 9999 9999" />`}
+                    {`<Input mask="+7 (999) 999-99-99" />
+                    
+                    <Input mask="99/99/9999" />
+                    
+                    <Input mask="9999 9999 9999 9999" />`}
                 </pre>
 
             </section>
