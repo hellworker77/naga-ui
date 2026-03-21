@@ -19,7 +19,8 @@
 
   "dependencies": {
     "@naga-ui/core": "workspace:*",
-    "@naga-ui/theme": "workspace:*"
+    "@naga-ui/theme": "workspace:*",
+    "@naga-ui/mask-engine": "workspace:*"
   },
 
   "peerDependencies": {

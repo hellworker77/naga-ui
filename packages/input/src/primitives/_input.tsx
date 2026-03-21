@@ -1,63 +1,64 @@
-import {forwardRef, InputHTMLAttributes} from "react";
-import {useInputMask} from "../mask/useInputMask";
-import {DynamicMask, Mask} from "../mask/_engine";
+import {
+    forwardRef,
+    InputHTMLAttributes,
+    useImperativeHandle,
+    useRef
+} from "react"
+import {useInputMask} from "../useInputMask";
 
 export interface Props
     extends InputHTMLAttributes<HTMLInputElement> {
-    mask?: Mask | DynamicMask;
+    mask?: string | {
+        masks: string[],
+        dispatch(v: string): string
+    }
 }
 
-export const Input = forwardRef<
-    HTMLInputElement,
-    Props
->((props, ref) => {
-    const {
-        mask,
-        required,
-        ...rest
-    } = props
+export const Input = forwardRef<HTMLInputElement, Props>(
+    (props, ref) => {
+        const {
+            mask,
+            required,
+            onChange,
+            ...rest
+        } = props
 
-    const {
-        value,
-        raw,
-        validation,
-        ...handlers
-    } = useInputMask(mask)
+        const innerRef = useRef<HTMLInputElement>(null)
 
-    return (
-        <input
-            {...rest}
-            {...handlers}
-            ref={ref}
+        const {
+            value,
+            ...handlers
+        } = useInputMask(mask)
 
-            value={value}
+        useImperativeHandle(ref, () => innerRef.current!)
 
-            required={required}
+        return (
+            <input
+                {...rest}
+                {...handlers}
+                ref={innerRef}
+                value={value}
+                required={required}
 
-            data-invalid={
-                required && !validation.valid
-                    ? ""
-                    : undefined
-            }
+                onChange={(e) => {
+                    handlers.onChange(e)
+                    onChange?.(e)
 
-            onChange={(e) => {
-                handlers.onChange?.(e)
+                    if (required) {
+                        const valid = !!e.currentTarget.value
 
-                if (required) {
-                    const valid =
-                        validation.valid
+                        e.currentTarget.setCustomValidity(
+                            valid ? "" : "Invalid value"
+                        )
+                    }
+                }}
 
-                    e.currentTarget.setCustomValidity(
-                        valid ? "" : "Invalid value"
-                    )
-                }
-            }}
-
-            onInvalid={(e) => {
-                if (required && !validation.valid) {
-                    e.currentTarget.setCustomValidity("Invalid value")
-                }
-            }}
-        />
-    )
-})
+                onInvalid={(e) => {
+                    if (required && !e.currentTarget.value) {
+                        e.currentTarget.setCustomValidity("Invalid value")
+                    }
+                }}
+            />
+        )
+    }
+)
