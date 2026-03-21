@@ -2,41 +2,32 @@ import { Input } from "@naga-ui/input"
 import styles from "./InputDemo.module.css"
 import React from "react"
 
-const phoneMask = {
-    masks: [
-        "+1 (999) 999-9999",
-        "+44 99 9999 9999"
-    ],
-
-    dispatch(value: string) {
-        if (value.startsWith("1"))
-            return "+1 (999) 999-9999"
-
-        return "+44 99 9999 9999"
-    }
-}
-
-const currencyMask = (value: string) => {
-    const num = Number(value.replace(/\D/g, ""))
-    if (!num) return ""
-    return num.toLocaleString("en-US")
-}
-
 export function InputDemo() {
+
+    const phoneMask = {
+        masks: [
+            "+1 (999) 999-9999",
+            "+44 99 9999 9999"
+        ],
+
+        dispatch(raw: string) {
+            if (raw.startsWith("1")) {
+                return "+1 (999) 999-9999"
+            }
+
+            return "+44 99 9999 9999"
+        }
+    }
 
     return (
         <div className="demo-page">
 
             <header className="demo-header">
-
-                <h1 className="demo-title">
-                    Input
-                </h1>
+                <h1 className="demo-title">Input</h1>
 
                 <p className="demo-subtitle">
-                    Input with masking, formatting and dynamic behavior.
+                    Input with masking.
                 </p>
-
             </header>
 
 
@@ -54,7 +45,7 @@ export function InputDemo() {
                         </label>
 
                         <Input
-                            mask="+7 (999) 999-99-99"
+                            mask={phoneMask}
                             className={styles.input}
                         />
                     </div>
@@ -75,87 +66,32 @@ export function InputDemo() {
             </section>
 
 
-            {/* Placeholder */}
+            {/* Different formats */}
 
             <section className="demo-section">
 
-                <h2>Placeholder / Lazy</h2>
+                <h2>Formats</h2>
 
                 <div className="demo-stack">
 
                     <div className={styles.inputRow}>
                         <label className={styles.label}>
-                            Lazy (default)
+                            Credit card
                         </label>
 
                         <Input
-                            mask={{
-                                mask: "99/99/9999",
-                                lazy: true
-                            }}
+                            mask="9999 9999 9999 9999"
                             className={styles.input}
                         />
                     </div>
 
                     <div className={styles.inputRow}>
                         <label className={styles.label}>
-                            With placeholder
+                            Time
                         </label>
 
                         <Input
-                            mask={{
-                                mask: "99/99/9999",
-                                placeholder: "_",
-                                lazy: false
-                            }}
-                            className={styles.input}
-                        />
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            {/* Dynamic */}
-
-            <section className="demo-section">
-
-                <h2>Dynamic mask</h2>
-
-                <div className="demo-stack">
-
-                    <div className={styles.inputRow}>
-                        <label className={styles.label}>
-                            Phone (US / UK)
-                        </label>
-
-                        <Input
-                            mask={phoneMask}
-                            className={styles.input}
-                        />
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            {/* Currency */}
-
-            <section className="demo-section">
-
-                <h2>Custom (currency)</h2>
-
-                <div className="demo-stack">
-
-                    <div className={styles.inputRow}>
-                        <label className={styles.label}>
-                            Currency
-                        </label>
-
-                        <Input
-                            mask={currencyMask}
+                            mask="99:99"
                             className={styles.input}
                         />
                     </div>
@@ -200,6 +136,19 @@ export function InputDemo() {
                         />
                     </div>
 
+                    <div className={styles.inputRow}>
+                        <label className={styles.label}>
+                            Date
+                        </label>
+
+                        <Input
+                            required
+                            name="date"
+                            mask="99/99/9999"
+                            className={styles.input}
+                        />
+                    </div>
+
                     <button type="submit">
                         Submit
                     </button>
@@ -220,21 +169,13 @@ export function InputDemo() {
 
 <Input mask="99/99/9999" />
 
-<Input
-  mask={{
-    mask: "99/99/9999",
-    placeholder: "_",
-    lazy: false
-  }}
-/>
-
-<Input mask={currencyMask} />`}
+<Input mask="9999 9999 9999 9999" />`}
                 </pre>
 
             </section>
 
 
-            {/* Data */}
+            {/* Features */}
 
             <section className="demo-section">
 
@@ -244,7 +185,7 @@ export function InputDemo() {
                     <tbody>
 
                     <tr>
-                        <td>caret restore</td>
+                        <td>caret control</td>
                         <td>yes</td>
                     </tr>
 
@@ -259,12 +200,12 @@ export function InputDemo() {
                     </tr>
 
                     <tr>
-                        <td>dynamic masks</td>
+                        <td>overwrite mode</td>
                         <td>yes</td>
                     </tr>
 
                     <tr>
-                        <td>custom format</td>
+                        <td>literal skip</td>
                         <td>yes</td>
                     </tr>
 
