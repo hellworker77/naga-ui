@@ -1,64 +1,39 @@
-import {
-    forwardRef,
-    InputHTMLAttributes,
-    useImperativeHandle,
-    useRef
-} from "react"
-import {useInputMask} from "../useInputMask";
+import {forwardRef, InputHTMLAttributes} from "react"
+import {useMask} from "@naga-ui/react-mask";
+import {Mask} from "@naga-ui/mask-engine";
+import {composeRefs} from "@naga-ui/core";
 
 export interface Props
     extends InputHTMLAttributes<HTMLInputElement> {
-    mask?: string | {
-        masks: string[],
-        dispatch(v: string): string
-    }
+    mask?: Mask
 }
 
-export const Input = forwardRef<HTMLInputElement, Props>(
-    (props, ref) => {
-        const {
-            mask,
-            required,
-            onChange,
-            ...rest
-        } = props
+export const Input = forwardRef<
+    HTMLInputElement,
+    Props
+>((props, forwardedRef) => {
 
-        const innerRef = useRef<HTMLInputElement>(null)
+    const {
+        mask,
+        required,
+        ...rest
+    } = props
 
-        const {
-            value,
-            ...handlers
-        } = useInputMask(mask)
+    const {
+        value,
+        ref,
+        ...handlers
+    } = useMask(mask)
 
-        useImperativeHandle(ref, () => innerRef.current!)
 
-        return (
-            <input
-                {...rest}
-                {...handlers}
-                ref={innerRef}
-                value={value}
-                required={required}
+    return (
+        <input {...rest}
+               {...handlers}
 
-                onChange={(e) => {
-                    handlers.onChange(e)
-                    onChange?.(e)
+               value={value}
 
-                    if (required) {
-                        const valid = !!e.currentTarget.value
+               required={required}
 
-                        e.currentTarget.setCustomValidity(
-                            valid ? "" : "Invalid value"
-                        )
-                    }
-                }}
-
-                onInvalid={(e) => {
-                    if (required && !e.currentTarget.value) {
-                        e.currentTarget.setCustomValidity("Invalid value")
-                    }
-                }}
-            />
-        )
-    }
-)
+               ref={composeRefs(forwardedRef, ref)} />
+    )
+})
