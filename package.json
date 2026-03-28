@@ -26,7 +26,8 @@
 
     "build:theme": "pnpm -F @naga-ui/theme build",
     "build:core": "pnpm -F @naga-ui/core build",
-    "build:mask-engine": "pnpm -F @naga-ui/mask-engine build"
+    "build:mask-engine": "pnpm -F @naga-ui/mask-engine build",
+    "build:react-mask": "pnpm -F @naga-ui/react-mask build"
   },
 
   "devDependencies": {
