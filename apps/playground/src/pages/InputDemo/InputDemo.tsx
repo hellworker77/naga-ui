@@ -1,47 +1,23 @@
-import {Input} from "@naga-ui/input"
+import { Input } from "@naga-ui/input"
 import styles from "./InputDemo.module.css"
-import React, {useMemo} from "react"
+import React from "react"
 
 export function InputDemo() {
-
-    const phoneMask = useMemo(() => ({
-        masks: [
-            "+1 (999) 999-9999",
-            "+44 99 9999 9999"
-        ],
-
-        dispatch(raw: string) {
-            if (!raw) {
-                // дефолтная маска (не дёргаем)
-                return "+1 (999) 999-9999"
-            }
-
-            if (raw.startsWith("44")) {
-                return "+44 99 9999 9999"
-            }
-
-            if (raw.startsWith("1")) {
-                return "+1 (999) 999-9999"
-            }
-
-            // fallback
-            return "+1 (999) 999-9999"
-        }
-    }), [])
 
     return (
         <div className="demo-page">
 
             <header className="demo-header">
-                <h1 className="demo-title">Input</h1>
+
+                <h1 className="demo-title">
+                    Input
+                </h1>
 
                 <p className="demo-subtitle">
-                    Input with masking.
+                    Input with masking, formatting and dynamic behavior.
                 </p>
+
             </header>
-
-
-            {/* Example */}
 
             <section className="demo-section">
 
@@ -55,7 +31,7 @@ export function InputDemo() {
                         </label>
 
                         <Input
-                            mask={phoneMask}
+                            mask="+7 (999) 999-99-99"
                             className={styles.input}
                         />
                     </div>
@@ -74,44 +50,6 @@ export function InputDemo() {
                 </div>
 
             </section>
-
-
-            {/* Formats */}
-
-            <section className="demo-section">
-
-                <h2>Formats</h2>
-
-                <div className="demo-stack">
-
-                    <div className={styles.inputRow}>
-                        <label className={styles.label}>
-                            Credit card
-                        </label>
-
-                        <Input
-                            mask="9999 9999 9999 9999"
-                            className={styles.input}
-                        />
-                    </div>
-
-                    <div className={styles.inputRow}>
-                        <label className={styles.label}>
-                            Time
-                        </label>
-
-                        <Input
-                            mask="99:99"
-                            className={styles.input}
-                        />
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            {/* Form */}
 
             <section className="demo-section">
 
@@ -146,19 +84,6 @@ export function InputDemo() {
                         />
                     </div>
 
-                    <div className={styles.inputRow}>
-                        <label className={styles.label}>
-                            Date
-                        </label>
-
-                        <Input
-                            required
-                            name="date"
-                            mask="99/99/9999"
-                            className={styles.input}
-                        />
-                    </div>
-
                     <button type="submit">
                         Submit
                     </button>
@@ -166,9 +91,6 @@ export function InputDemo() {
                 </form>
 
             </section>
-
-
-            {/* Usage */}
 
             <section className="demo-section">
 
@@ -179,13 +101,18 @@ export function InputDemo() {
                     
                     <Input mask="99/99/9999" />
                     
-                    <Input mask="9999 9999 9999 9999" />`}
+                    <Input
+                      mask={{
+                        mask: "99/99/9999",
+                        placeholder: "_",
+                        lazy: false
+                      }}
+                    />
+                    
+                    <Input mask={currencyMask} />`}
                 </pre>
 
             </section>
-
-
-            {/* Features */}
 
             <section className="demo-section">
 
@@ -195,7 +122,7 @@ export function InputDemo() {
                     <tbody>
 
                     <tr>
-                        <td>caret control</td>
+                        <td>caret restore</td>
                         <td>yes</td>
                     </tr>
 
@@ -210,12 +137,12 @@ export function InputDemo() {
                     </tr>
 
                     <tr>
-                        <td>overwrite mode</td>
+                        <td>dynamic masks</td>
                         <td>yes</td>
                     </tr>
 
                     <tr>
-                        <td>literal skip</td>
+                        <td>custom format</td>
                         <td>yes</td>
                     </tr>
 
