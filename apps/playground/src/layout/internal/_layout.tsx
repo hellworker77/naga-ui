@@ -1,8 +1,8 @@
-import Sidebar from "./Sidebar"
+import {Sidebar} from "../sidebar"
 import React from "react"
 import "./Layout.css"
 
-export default function Layout({
+export function Layout({
                                    page,
                                    onNavigate,
                                    children
@@ -13,8 +13,7 @@ export default function Layout({
 }) {
 
     return (
-        <div className="container">
-
+        <div className="layout">
             <Sidebar
                 page={page}
                 onNavigate={onNavigate}

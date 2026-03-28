@@ -1,7 +1,7 @@
 import { useState } from "react"
-import Layout from "./layout/Layout"
 import { pages, PageId } from "./pages"
 import React from "react"
+import {Layout} from "./layout";
 
 export default function App() {
 
