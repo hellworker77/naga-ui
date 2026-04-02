@@ -1,4 +1,4 @@
-import styles from "./Spinner.module.css"
+import "./spinner.css"
 
 export function Spinner() {
     return (
@@ -7,7 +7,7 @@ export function Spinner() {
             height="16"
             viewBox="0 0 24 24"
             fill="none"
-            className={styles.spinner}
+            className="b__spinner_def"
         >
             <circle
                 cx="12"
