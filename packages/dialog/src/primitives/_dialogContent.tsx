@@ -1,0 +1,97 @@
+import {forwardRef, HTMLAttributes, useEffect} from "react";
+import {useDialog} from "../_dialogContext";
+import {useFocusTrap} from "../hooks/useFocusTrap";
+import {composeRefs, useDismissableLayer, useOutsideClick, useOverlayStack} from "@naga-ui/core";
+import {useBodyScrollLock} from "../hooks/useBodyScrollLock";
+import {useFocusRestore} from "../hooks/useFocusRestore";
+
+export const DialogContent = forwardRef<
+    HTMLDivElement,
+    HTMLAttributes<HTMLDivElement>>((props, forwardedRef) => {
+    const {
+        open,
+        setOpen,
+
+        contentRef,
+        triggerRef,
+
+        titleId,
+        descriptionId
+    } = useDialog()
+
+    const {children, style, ...rest} = props
+
+    const {isTop, getZIndex} = useOverlayStack(open);
+
+    useDismissableLayer({
+        open,
+        ref: contentRef,
+        onDismiss: () => setOpen(false),
+        isTop
+    })
+
+    useFocusTrap(contentRef, open)
+    useBodyScrollLock(open)
+    useFocusRestore(triggerRef, open)
+
+    useOutsideClick(
+        contentRef,
+        () => {
+            if (isTop()) {
+                setOpen(false)
+            }
+        },
+        triggerRef)
+
+    useEffect(() => {
+
+        function onKey(e: KeyboardEvent) {
+            if (e.key === "Escape" && isTop()) {
+                setOpen(false)
+            }
+        }
+
+        document.addEventListener("keydown", onKey)
+
+        return () =>
+            document.removeEventListener("keydown", onKey)
+
+    }, [])
+
+    if (!open) return null;
+
+    return (
+        <div
+            {...rest}
+            
+            ref={composeRefs(forwardedRef, contentRef)}
+
+            role="dialog"
+            aria-modal="true"
+
+            aria-labelledby={titleId}
+            aria-describedby={descriptionId}
+
+            data-state="open"
+
+            style={{
+                zIndex: getZIndex(),
+
+                position: "fixed",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                background: "white",
+                borderRadius: 8,
+                padding: 24,
+                maxWidth: 500,
+                width: "100%",
+
+                ...style
+            }}>
+            {children}
+        </div>
+    )
+})
+
+DialogContent.displayName = "DialogContent"

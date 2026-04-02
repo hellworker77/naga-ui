@@ -1,0 +1,30 @@
+import { forwardRef, memo } from "react"
+import { IconProps } from "../types"
+
+const <%= componentName %> = memo(
+    forwardRef<SVGSVGElement, IconProps>(
+        function <%= componentName %>(
+            { color = "currentColor", size = 16, ...props }, ref) {
+            return (
+                <svg
+                    {...props}
+                    ref={ref}
+                    width={size}
+                    height={size}
+                    viewBox="<%= viewBox %>"
+                    fill="none"
+                    stroke={color}
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <%- svgContent %>
+                </svg>
+            )
+        }
+    )
+)
+
+<%= componentName %>.displayName = "<%= componentName %>"
+
+export default <%= componentName %>

@@ -1,0 +1,82 @@
+.layout {
+    display: flex;
+    height: 100vh;
+}
+
+.main {
+    flex: 1;
+    padding: 40px;
+    overflow: auto;
+}
+
+.demo-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    font-family: var(--naga-font), serif;
+}
+
+.demo-code {
+    background: #1e1e1e;
+    color: #e6e6e6;
+
+    padding: 16px 18px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    overflow: auto;
+
+    font-family:
+            ui-monospace,
+            SFMono-Regular,
+            Menlo,
+            Monaco,
+            Consolas,
+            monospace;
+}
+
+.demo-title {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.demo-subtitle {
+    color: #666;
+    font-size: 14px;
+}
+
+.demo-header {
+    margin-bottom: 40px;
+}
+
+.demo-section {
+    margin-bottom: 48px;
+}
+
+.demo-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 300px;
+}
+
+.demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.demo-table th {
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+}
+
+.demo-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+}

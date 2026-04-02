@@ -1,0 +1,20 @@
+.button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #f5f5f5;
+}
+
+.tooltip {
+    font-size: 12px;
+    padding: 6px 8px;
+    background: black;
+    color: white;
+    border-radius: 4px;
+    max-width: 200px;
+}

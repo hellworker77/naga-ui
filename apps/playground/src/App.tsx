@@ -1,17 +1,20 @@
 import { useState } from "react"
-import Layout from "./layout/Layout"
-import SelectDemo from "./pages/SelectDemo/SelectDemo"
+import { pages, PageId } from "./pages"
+import React from "react"
+import {Layout} from "./layout";
 
 export default function App() {
 
-    const [page, setPage] = useState("select")
+    const [page, setPage] = useState<PageId>("select")
+
+    const Page = pages[page]
 
     return (
         <Layout
             page={page}
-            onNavigate={setPage}
+            onNavigate={(p) => setPage(p as PageId)}
         >
-            {page === "select" && <SelectDemo />}
+            <Page />
         </Layout>
     )
 }

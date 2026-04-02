@@ -1,7 +1,7 @@
 ﻿node_modules
-packages/select/dist
+dist
 .idea
-apps/playground/dist
-packages/utils/dist
 pnpm-lock.yaml
-apps/playground/package-lock.json
+package-lock.json
+packages/icon/src/icons
+packages/icon/src/iconRegistry.ts

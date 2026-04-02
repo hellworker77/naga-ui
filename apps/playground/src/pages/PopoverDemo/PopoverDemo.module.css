@@ -1,0 +1,21 @@
+.button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #f6f6f6;
+}
+
+.popover {
+    min-width: 220px;
+}
+
+.popoverContent {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}

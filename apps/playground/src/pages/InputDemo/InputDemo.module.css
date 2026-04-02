@@ -1,0 +1,27 @@
+.inputRow {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: 13px;
+    color: #555;
+}
+
+.input {
+    height: 36px;
+    padding: 0 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    transition: border .15s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: black;
+}

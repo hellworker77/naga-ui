@@ -1,6 +1,6 @@
 import React, {ButtonHTMLAttributes, forwardRef} from "react";
 import {useSelect} from "../_selectContext";
-import {composeRefs} from "@naga-ui/utils";
+import {composeRefs} from "@naga-ui/core";
 
 export const SelectTrigger = forwardRef<
     HTMLButtonElement,

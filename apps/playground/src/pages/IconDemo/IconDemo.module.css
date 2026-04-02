@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.list {
+    padding-left: 18px;
+}
+
+.list li {
+    margin-bottom: 6px;
+}

@@ -7,13 +7,24 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@naga-ui/button": "workspace:*",
+    "@naga-ui/checkbox": "workspace:*",
+    "@naga-ui/dialog": "workspace:*",
+    "@naga-ui/icon": "workspace:*",
+    "@naga-ui/input": "workspace:*",
+    "@naga-ui/popover": "workspace:*",
     "@naga-ui/select": "workspace:*",
+    "@naga-ui/switch": "workspace:*",
+    "@naga-ui/tabs": "workspace:*",
+    "@naga-ui/tooltip": "workspace:*",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4",
+    "typescript": "^5",
     "vite": "^5",
-    "typescript": "^5"
+    "vite-plugin-svgr": "^4.5.0"
   }
 }

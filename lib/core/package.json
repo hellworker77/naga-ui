@@ -1,0 +1,29 @@
+{
+  "name": "@naga-ui/core",
+  "version": "0.0.1",
+  "type": "module",
+
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+
+  "files": [
+    "dist"
+  ],
+
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf dist"
+  },
+
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  }
+}

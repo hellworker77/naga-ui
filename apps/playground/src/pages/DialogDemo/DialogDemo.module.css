@@ -1,0 +1,58 @@
+.button {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #f5f5f5;
+}
+
+.buttonSecondary {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: transparent;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+}
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    max-width: 420px;
+
+    background: white;
+    border-radius: 10px;
+
+    padding: 24px;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.dialogTitle {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.dialogText {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dialogActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}

@@ -7,7 +7,7 @@ import {
     useListNavigation,
     useOutsideClick,
     useTypehead
-} from "@naga-ui/utils";
+} from "@naga-ui/core";
 
 export const SelectContent = forwardRef<
     HTMLDivElement,

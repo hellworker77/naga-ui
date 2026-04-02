@@ -1,0 +1,22 @@
+.tabsList {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.trigger {
+    padding: 8px 14px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.trigger[data-state="active"] {
+    border-bottom: 2px solid black;
+    font-weight: 500;
+}
+
+.panel {
+    padding: 16px 0;
+}
